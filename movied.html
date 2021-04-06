@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href='movieCSS.css'>
+<title>MOVIE</title>
+<style type="text/css">
+	.wrap {
+   width: 100%;
+   text-align: center;
+   background-color:#361f67
+}
+
+.header {
+   padding-top: 20px; 
+   width : 500px;
+   margin: auto;
+   width: 500px;
+   background-color:#361f67
+}
+
+body {
+   background-color: #f5f6f7;
+   margin: auto;
+}
+
+#table {
+   width: 95%;
+   background-color: #f5f6f7;
+   font-size: 14px;
+   font-family: "돋움";
+   margin: auto;
+   margin-top: 20px;
+   margin-bottom: 30px;
+}
+
+th {
+   font-size: 13px;
+   
+}
+
+
+tr {
+   text-align: center;
+   
+}
+
+td{
+padding-bottom: 5px;
+border-bottom:1px solid lightgray;
+
+}
+
+tr:hover {
+   background-color: lightgray;
+}
+p{
+font-size: 15px;
+   font-family: "굴림";
+   color:gray;
+}
+img {
+
+   width: 280px;
+   height: 70px;
+   margin: auto;
+}
+
+#top3 {
+   margin: 20px 0 0 20px;
+   text-align: center;
+   width: 90%;
+   display: flex;
+   justify-content: space-between;
+   border: 1px solid lightgray;
+   border-radius: 20px;
+   padding: 10px;
+   margin: auto;
+}
+
+#top3  img {
+   width: 85%;
+   height: 85%;
+}
+</style>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script type="text/javascript">
+   	$(function(){
+		$('#btn').click(function(){
+			let flickerAPI = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?"
+			let data = {key:"f5eef3421c602c6cb7ea224104795888",
+						targetDt:$('#id').val()
+			}
+			console.log("아녕");
+			
+			$.getJSON(flickerAPI,data,function(data,textstatus,xhr){
+				$('#table').empty();
+				$('#table').append("<tr><th>Rank</th><th>Name</th><th>개봉일</th><th>총관객수</th></tr>");
+				$.each(data.boxOfficeResult.dailyBoxOfficeList,function(index,obj){
+					console.log(obj.movieNm);
+					console.log("td");
+					$('#table').append("<tr><td>"+ obj.rank + "</td><td>"+ obj.movieNm + "</td><td>"+obj.openDt+"</td><td>"+ obj.audiAcc + "</td></tr>");
+					
+				});
+			});  
+			
+			
+		});
+	});
+   </script>
+</head>
+<body>
+<div class="wrap">
+      <div class="header">
+         <img src="megabox.png">
+      </div>
+      <input type="text" id="id">
+      <input type="button" id="btn" value="검색">
+   </div>
+
+ <div id="top3">
+      <div class="top2">
+         <a href="https://movie.naver.com/movie/bi/mi/basic.nhn?code=189124" target="_blank"><img src="mission.png" alt="미션 파서블"></a>
+         <p>
+            <b>Top 2</b>
+         </p>
+      </div>
+      <div class="top1">
+         <a href="https://movie.naver.com/movie/bi/mi/basic.nhn?code=184517#" target="_blank"><img src="soul.png" alt="소울"></a>
+         <p>
+            <b>Top 1</b>
+         </p>
+      </div>
+      
+      <div class="top3">
+         <a href="https://movie.naver.com/movie/bi/mi/basic.nhn?code=196051" target="_blank"><img src="rnlauf.png" alt="커멸의칼날"></a>
+         <p>
+            <b>Top 3</b>
+         </p>
+      </div>
+   </div>
+
+
+
+   <div class="main">
+      <table id="table">
+         <tr>
+            <th>RANK
+               <hr>
+            </th>
+
+            <th>TITLE
+               <hr>
+            </th>
+
+            <th>TOTAL_MONEY
+               <hr>
+            </th>
+            
+         <th>TOTAL_PEOPLE
+               <hr>
+            </th>
+            
+         </tr>
+      </table>
+   </div>
+</body>
+<script type="text/javascript"  src="moviejs.js"></script>
+</html>
