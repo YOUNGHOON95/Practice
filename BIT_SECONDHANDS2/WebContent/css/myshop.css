@@ -1,0 +1,38 @@
+#productdetailName {
+	margin-top: 200px;
+	margin-left: 60px;
+}
+
+#myshopeditBtn{
+	width: 150px;
+	height: 50px;
+	font-size: 20px;
+	text-align: center;
+	margin-top: 220px;
+	margin-left: 70px;
+	
+}
+
+#ProductPhoto {
+	width: 290px;
+	height: 290px;
+	margin-left: 70px;
+	background-color: gray;
+}
+
+#ProductTotal {
+	display: flex;
+}
+
+#Storename {
+	margin: 25px 0px 0px 35px;
+		font-size: 20px;
+		font-weight: bold;
+	
+}
+#editBtn{
+	width: 55px;
+	height: 21px;
+	margin: 30px 0px 0px 10px;
+	font-size: 11px;
+}

@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.pd-title ul li{
+	
+	margin-bottom : 10px;
+}
+
+#contactseller{
+	position:absolute;	
+	bottom:0;
+	
+}
+#contactseller input{
+	border:none;
+	width:160px;
+	color:white;
+	padding:10px 0;
+	text-align:center;
+	margin-top:10px;
+}
+
+#call{
+	background-color:#f69e07;
+	margin-right:auto;
+}
+
+#buynow{
+	background-color:#f70000;
+	margin-left:auto;
+}
+
+#p_content{
+	margin-right:auto;
+}
+
+#shopcontainer{
+	border:1px lightgray solid;
+}
